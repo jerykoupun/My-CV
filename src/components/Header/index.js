@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 const Header = () => {
+  const [header, setHeader] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const headerRef = ref(db, "header");
+    onValue(headerRef, (snapshot) => {
+      const data = snapshot.val();
+      setHeader(data);
+    });
+  }, []);
   return (
     <nav className="navbar fixed-top navbar-expand-lg navbar-dark page-navbar gradient">
       <div className="container">
         <a className="navbar-brand logo" href="#">
-          J.K
+          {header.logo}
         </a>
         <button
           className="navbar-toggler"
@@ -23,22 +33,22 @@ const Header = () => {
             <li className="nav-item item"></li>
             <li className="nav-item item">
               <a className="nav-link" href="#portofolio">
-                Portofolios
+                {header.nav1}
               </a>
             </li>
             <li className="nav-item item">
               <a className="nav-link" href="#education">
-                Education
+                {header.nav2}
               </a>
             </li>
             <li className="nav-item item">
               <a className="nav-link" href="#skills">
-                Skills
+                {header.nav3}
               </a>
             </li>
             <li className="nav-item item">
               <a className="nav-link" href="#hobbies">
-                Hobbies
+                {header.nav4}
               </a>
             </li>
           </ul>
@@ -49,7 +59,7 @@ const Header = () => {
           role="button"
           aria-disabled="true"
         >
-          Download
+          {header.button}
         </a>
       </div>
     </nav>
