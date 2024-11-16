@@ -84,7 +84,7 @@ const Info = () => {
                     style={{ width: "90%" }}
                   ></div>
                 </div>
-                <h3>{info.skil2}</h3>
+                <h3>{info.Skil2}</h3>
                 <div className="progress">
                   <div
                     className="progress-bar"
