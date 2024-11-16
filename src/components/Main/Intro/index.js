@@ -1,14 +1,12 @@
 import React from "react";
+import Image1 from "../../../assets/img/avatar.jpg";
 
 const Intro = () => {
   return (
     <section className="cv-block block-intro border-bottom">
       <div className="container">
         <div className="avatar">
-          <img
-            className="img-fluid rounded-circle"
-            src="assets/img/avatar.jpg"
-          />
+          <img className="img-fluid rounded-circle" src={Image1} />
         </div>
         <p>
           Hello! I am <strong>Jery Koupun</strong>.I am a student at the Faculty
